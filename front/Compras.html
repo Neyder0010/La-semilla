@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compras - La Semilla</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#f1f5f9;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    min-height:100vh;
+    background:#1e293b;
+}
+
+.sidebar .logo{
+    font-size:24px;
+    font-weight:bold;
+    color:white;
+}
+
+.sidebar .nav-link{
+    color:#cbd5e1;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:5px;
+    transition:0.3s;
+}
+
+.sidebar .nav-link:hover{
+    background:#334155;
+    color:white;
+}
+
+.sidebar .nav-link.active{
+    background:#22c55e;
+    color:white;
+}
+
+/* TOPBAR */
+
+.topbar{
+    background:white;
+    border-bottom:1px solid #ddd;
+}
+
+/* CARDS */
+
+.card-custom{
+    border:none;
+    border-radius:18px;
+    background:white;
+}
+
+/* TOTAL */
+
+.total-box{
+    background:#1e293b;
+    color:white;
+    border-radius:18px;
+}
+
+/* BOTONES */
+
+.btn-success{
+    background:#16a34a;
+    border:none;
+}
+
+.btn-success:hover{
+    background:#15803d;
+}
+
+/* INPUTS */
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow:none;
+    border-color:#22c55e;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .sidebar{
+        display:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="d-flex">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar p-3">
+
+        <div class="logo mb-4">
+            🌱 La Semilla
+        </div>
+
+        <ul class="nav flex-column">
+
+            <li>
+                <a href="dashboard.html" class="nav-link">
+
+                    <i class="bi bi-speedometer2 me-2"></i>
+
+                    Dashboard
+
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="nav-link">
+
+                    <i class="bi bi-box-seam me-2"></i>
+
+                    Productos
+
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="nav-link active">
+
+                    <i class="bi bi-cart-plus me-2"></i>
+
+                    Compras
+
+                </a>
+            </li>
+
+            <li>
+                <a href="ventas.html" class="nav-link">
+
+                    <i class="bi bi-cart-check me-2"></i>
+
+                    Ventas
+
+                </a>
+            </li>
+
+            <li>
+                <a href="reportes.html" class="nav-link">
+
+                    <i class="bi bi-bar-chart me-2"></i>
+
+                    Reportes
+
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="flex-grow-1">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar p-3 d-flex justify-content-between align-items-center">
+
+            <div>
+
+                <h4 class="m-0">
+                    Compras
+                </h4>
+
+                <small class="text-muted">
+                    Registro de entrada de mercancía
+                </small>
+
+            </div>
+
+            <button class="btn btn-success">
+
+                <i class="bi bi-check-circle me-2"></i>
+
+                Finalizar Compra
+
+            </button>
+
+        </div>
+
+        <!-- CONTENIDO -->
+
+        <div class="container-fluid p-4">
+
+            <!-- AGREGAR PRODUCTOS -->
+
+            <div class="card-custom shadow-sm p-4 mb-4">
+
+                <div class="row g-3 align-items-end">
+
+                    <!-- PRODUCTO -->
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">
+                            Producto
+                        </label>
+
+                        <select 
+                            class="form-select"
+                            id="producto"
+                        >
+
+                            <option value="">
+                                Seleccionar producto
+                            </option>
+
+                            <option value="Arroz">
+                                Arroz
+                            </option>
+
+                            <option value="Azúcar">
+                                Azúcar
+                            </option>
+
+                            <option value="Lápiz">
+                                Lápiz
+                            </option>
+
+                            <option value="Cuaderno">
+                                Cuaderno
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- CANTIDAD -->
+
+                    <div class="col-md-2">
+
+                        <label class="form-label">
+                            Cantidad
+                        </label>
+
+                        <input 
+                            type="number"
+                            class="form-control"
+                            id="cantidad"
+                            value="1"
+                            min="1"
+                        >
+
+                    </div>
+
+                    <!-- COSTO COMPRA -->
+
+                    <div class="col-md-2">
+
+                        <label class="form-label">
+                            Costo Compra
+                        </label>
+
+                        <input 
+                            type="number"
+                            class="form-control"
+                            id="costo"
+                            placeholder="0"
+                        >
+
+                    </div>
+
+                    <!-- PROVEEDOR -->
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">
+                            Proveedor
+                        </label>
+
+                        <input 
+                            type="text"
+                            class="form-control"
+                            id="proveedor"
+                            placeholder="Nombre proveedor"
+                        >
+
+                    </div>
+
+                    <!-- BOTON -->
+
+                    <div class="col-md-2">
+
+                        <button 
+                            class="btn btn-success w-100"
+                            onclick="agregarCompra()"
+                        >
+
+                            <i class="bi bi-plus-lg me-2"></i>
+
+                            Agregar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TABLA Y RESUMEN -->
+
+            <div class="row g-4">
+
+                <!-- TABLA -->
+
+                <div class="col-lg-8">
+
+                    <div class="card-custom shadow-sm p-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <h5 class="m-0">
+                                Productos Comprados
+                            </h5>
+
+                            <span class="badge bg-success">
+                                Compra Activa
+                            </span>
+
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <table class="table table-hover align-middle">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Costo</th>
+                                        <th>Proveedor</th>
+                                        <th>Subtotal</th>
+                                        <th></th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="tablaCompras">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- RESUMEN -->
+
+                <div class="col-lg-4">
+
+                    <div class="total-box p-4 shadow-sm">
+
+                        <h5 class="mb-4">
+                            Resumen Compra
+                        </h5>
+
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <span>Total Productos:</span>
+
+                            <span id="totalProductos">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-4">
+
+                            <span>Total Compra:</span>
+
+                            <span id="totalCompra">
+                                $0
+                            </span>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Observaciones
+                            </label>
+
+                            <textarea 
+                                class="form-control"
+                                rows="4"
+                                placeholder="Observaciones de la compra..."
+                            ></textarea>
+
+                        </div>
+
+                        <button class="btn btn-success w-100">
+
+                            <i class="bi bi-save me-2"></i>
+
+                            Guardar Compra
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let compras = [];
+
+/* AGREGAR COMPRA */
+
+function agregarCompra(){
+
+    let producto = document.getElementById("producto").value;
+
+    let cantidad = parseInt(document.getElementById("cantidad").value);
+
+    let costo = parseFloat(document.getElementById("costo").value);
+
+    let proveedor = document.getElementById("proveedor").value;
+
+    if(producto === ""){
+
+        alert("Seleccione un producto");
+
+        return;
+
+    }
+
+    if(!costo || costo <= 0){
+
+        alert("Ingrese un costo válido");
+
+        return;
+
+    }
+
+    let subtotal = cantidad * costo;
+
+    compras.push({
+
+        producto,
+        cantidad,
+        costo,
+        proveedor,
+        subtotal
+
+    });
+
+    renderTabla();
+
+}
+
+/* RENDER TABLA */
+
+function renderTabla(){
+
+    let tabla = document.getElementById("tablaCompras");
+
+    tabla.innerHTML = "";
+
+    compras.forEach((c,index)=>{
+
+        tabla.innerHTML += `
+
+        <tr>
+
+            <td>${c.producto}</td>
+
+            <td>${c.cantidad}</td>
+
+            <td>$${c.costo}</td>
+
+            <td>${c.proveedor}</td>
+
+            <td>$${c.subtotal}</td>
+
+            <td>
+
+                <button 
+                    class="btn btn-danger btn-sm"
+                    onclick="eliminarCompra(${index})"
+                >
+
+                    <i class="bi bi-trash"></i>
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    calcularTotal();
+
+}
+
+/* ELIMINAR */
+
+function eliminarCompra(index){
+
+    compras.splice(index,1);
+
+    renderTabla();
+
+}
+
+/* CALCULAR */
+
+function calcularTotal(){
+
+    let total = 0;
+
+    let productos = 0;
+
+    compras.forEach(c=>{
+
+        total += c.subtotal;
+
+        productos += c.cantidad;
+
+    });
+
+    document.getElementById("totalCompra").innerText =
+    "$" + total.toFixed(0);
+
+    document.getElementById("totalProductos").innerText =
+    productos;
+
+}
+
+</script>
+
+</body>
+</html>

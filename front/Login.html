@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - La Semilla</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+}
+
+/* CONTENEDOR */
+
+.login-container{
+    height:100vh;
+}
+
+/* PANEL IZQUIERDO */
+
+.left-panel{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+    color:white;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+}
+
+.left-panel h1{
+    font-size:55px;
+    font-weight:bold;
+}
+
+.left-panel p{
+    font-size:18px;
+    opacity:0.9;
+}
+
+/* CIRCULOS */
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+}
+
+.circle1{
+    width:200px;
+    height:200px;
+    top:-50px;
+    right:-50px;
+}
+
+.circle2{
+    width:150px;
+    height:150px;
+    bottom:-40px;
+    left:-40px;
+}
+
+/* PANEL DERECHO */
+
+.right-panel{
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+/* CARD LOGIN */
+
+.login-card{
+    width:100%;
+    max-width:400px;
+}
+
+/* LOGO */
+
+.logo{
+    width:90px;
+    height:90px;
+    background:#22c55e;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    color:white;
+    font-size:40px;
+}
+
+/* TITULO */
+
+.login-title{
+    font-weight:bold;
+    color:#1e293b;
+}
+
+/* INPUTS */
+
+.form-control{
+    height:50px;
+    border-radius:12px;
+}
+
+.form-control:focus{
+    box-shadow:none;
+    border-color:#22c55e;
+}
+
+/* BOTON */
+
+.btn-login{
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#22c55e;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-login:hover{
+    background:#16a34a;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .left-panel{
+        display:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="row login-container">
+
+        <!-- PANEL IZQUIERDO -->
+
+        <div class="col-lg-7 left-panel">
+
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+
+            <h1>
+                🌱 La Semilla
+            </h1>
+
+            <p class="mt-4">
+
+                Sistema POS e Inventario para la gestión
+                completa de productos, ventas y compras.
+
+            </p>
+
+        </div>
+
+        <!-- PANEL DERECHO -->
+
+        <div class="col-lg-5 right-panel">
+
+            <div class="login-card">
+
+                <!-- LOGO -->
+
+                <div class="logo mb-4">
+
+                    <i class="bi bi-shop"></i>
+
+                </div>
+
+                <!-- TITULO -->
+
+                <div class="text-center mb-4">
+
+                    <h2 class="login-title">
+                        Iniciar Sesión
+                    </h2>
+
+                    <p class="text-muted">
+                        Bienvenido nuevamente
+                    </p>
+
+                </div>
+
+                <!-- FORM -->
+
+                <form action="dashboard.html">
+
+                    <!-- USUARIO -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Usuario
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-person"></i>
+
+                            </span>
+
+                            <input 
+                                type="text"
+                                class="form-control"
+                                placeholder="Ingrese usuario"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Contraseña
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-lock"></i>
+
+                            </span>
+
+                            <input 
+                                type="password"
+                                class="form-control"
+                                placeholder="Ingrese contraseña"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- OPCIONES -->
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <div class="form-check">
+
+                            <input 
+                                class="form-check-input"
+                                type="checkbox"
+                                id="remember"
+                            >
+
+                            <label class="form-check-label" for="remember">
+
+                                Recordarme
+
+                            </label>
+
+                        </div>
+
+                        <a href="#" class="text-decoration-none">
+
+                            ¿Olvidó su contraseña?
+
+                        </a>
+
+                    </div>
+
+                    <!-- BOTON -->
+
+                    <button 
+                        type="submit"
+                        class="btn btn-login w-100"
+                    >
+
+                        <i class="bi bi-box-arrow-in-right me-2"></i>
+
+                        Entrar al Sistema
+
+                    </button>
+
+                </form>
+
+                <!-- FOOTER -->
+
+                <div class="text-center mt-4 text-muted">
+
+                    © 2026 La Semilla
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

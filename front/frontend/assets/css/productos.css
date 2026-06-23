@@ -1,0 +1,28 @@
+/* ESTILOS ESPECÍFICOS - PRODUCTOS */
+
+/* BADGES */
+
+.badge-stock {
+    background: #dcfce7;
+    color: #166534;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+/* RESUMEN CARD */
+
+.resumen-card {
+    border: none;
+    border-radius: 18px;
+    background: white;
+}
+
+/* TABLA */
+
+.table thead {
+    background: #f8fafc;
+}
+
+.table tbody tr:hover {
+    background: #f8fafc;
+}

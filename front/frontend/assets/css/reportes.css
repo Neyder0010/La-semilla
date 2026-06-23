@@ -1,0 +1,21 @@
+/* ESTILOS ESPECÍFICOS - REPORTES */
+
+/* TABLA */
+
+.table thead {
+    background: #f8fafc;
+}
+
+.table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* LISTA */
+
+.list-group-item {
+    border: 1px solid #e2e8f0;
+}
+
+.list-group-item:last-child {
+    border-bottom: 1px solid #e2e8f0;
+}

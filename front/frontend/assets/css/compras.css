@@ -1,0 +1,19 @@
+/* ESTILOS ESPECÍFICOS - COMPRAS */
+
+/* TOTAL BOX */
+
+.total-box {
+    background: #1e293b;
+    color: white;
+    border-radius: 18px;
+}
+
+/* TABLA */
+
+.table-responsive {
+    margin-top: 15px;
+}
+
+.table tbody tr:hover {
+    background: #f8fafc;
+}

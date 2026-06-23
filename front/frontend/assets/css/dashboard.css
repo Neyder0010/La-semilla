@@ -1,0 +1,24 @@
+/* ESTILOS ESPECÍFICOS - DASHBOARD */
+
+/* TOTAL BOX */
+
+.total-box {
+    background: #1e293b;
+    color: white;
+    border-radius: 18px;
+}
+
+/* ALERTAS */
+
+.alert-item {
+    padding: 12px;
+    border-left: 4px solid #22c55e;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+}
+
+.alert-item strong {
+    display: block;
+    margin-bottom: 4px;
+}

@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # 1. Tu Backend (Spring Boot)
+  backend:
+    image: maven:3.8.5-openjdk-17
+    container_name: mi_backend_java
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - ~/.m2:/root/.m2
+    ports:
+      - "8080:8080"
+    # 🎯 Mantenemos la redirección interna al servicio mysql_db en su puerto nativo 3306
+    command: mvn -f demo/pom.xml clean spring-boot:run -Dspring-boot.run.arguments="--spring.datasource.url=jdbc:mysql://mysql_db:3306/la_semilla?createDatabaseIfNotExist=true&serverTimezone=UTC --spring.datasource.password=1103"
+    networks:
+      - semilla_net
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+
+  # 2. Base de Datos (MySQL)
+  mysql_db:
+    image: mysql:8.0
+    container_name: mi_mysql_local
+    ports:
+      - "3307:3306"  # 🎯 CAMBIADO AQUÍ: 3307 hacia afuera para evitar el choque en tu PC
+    environment:
+      MYSQL_ROOT_PASSWORD: "1103"
+      MYSQL_DATABASE: la_semilla
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - semilla_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p1103"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # 3. Frontend (Tus páginas HTML con Nginx)
+  frontend:
+    image: nginx:alpine
+    container_name: mi_frontend_html
+    ports:
+      - "3000:80"        
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    networks:
+      - semilla_net
+
+networks:
+  semilla_net:
+    driver: bridge
+
+volumes:
+  mysql_data:
